@@ -46,25 +46,25 @@ if(!isset($_SESSION['user_name'])){
     <table class="table table-hover text-center">
       <thead class="table-dark">
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Gender</th>
+          <th scope="col">Building Name</th>
+          <th scope="col">Room Number</th>
+          <th scope="col">Subject Code</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT * FROM `crud`";
+        $sql = "SELECT * FROM event_tbl e INNER JOIN subject_tbl s ON e.subject_id = s.subject_id";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-            <td><?php echo $row["id"] ?></td>
-            <td><?php echo $row["first_name"] ?></td>
-            <td><?php echo $row["last_name"] ?></td>
-            <td><?php echo $row["email"] ?></td>
-            <td><?php echo $row["gender"] ?></td>
+            <td><?php echo $row["building_name"] ?></td>
+            <td><?php echo $row["room_number"] ?></td>
+            <td><?php echo $row["subject_code"] ?></td>
+            <td><?php echo $row["event_date"] ?></td>
+            <td><?php echo $row["event_time"] ?></td>
           </tr>
         <?php
         }

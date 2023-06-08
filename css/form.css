@@ -62,28 +62,24 @@ button {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
-}
-
-button:hover {
-	background-color: #0c0b34;
-}
-	
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus {
-	outline: none;
+	&:hover {
+		background-color: #0c0b34;
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+	&:focus {
+		outline: none;
+	}
 }
 
 button.ghost {
     border-style: solid;
 	background-color: transparent;
 	border-color: #FFFFFF;
-}
-
-button.ghost:hover {
-	background-color: rgba(255, 255, 255, 0.43);
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.43);
+	}
 }
 
 form {
@@ -273,11 +269,23 @@ canvas {
 	bottom: 20px;
 	right: 20px;
 	z-index: 9999;
-  }
+}
 
-  .error-msg {
-	background-color: #f1f1f1;
-	padding: 10px;
-	border: 1px solid #ccc;
-	margin-bottom: 10px;
-  }
+.error-msg {
+background-color: #f1f1f1;
+padding: 10px;
+border: 1px solid #ccc;
+margin-bottom: 10px;
+}
+
+.userType{
+	width: 100%;
+	padding:10px 15px;
+	margin:8px 0;
+	background: #eee;
+	border-radius: 5px;
+	border-style: none;
+	&:focus {
+		outline: none;
+	  }
+}

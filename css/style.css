@@ -64,7 +64,7 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 30px 16%;
+  padding: 30px 7.5%;
   background: url(../assets/bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;

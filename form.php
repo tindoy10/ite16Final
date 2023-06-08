@@ -51,6 +51,7 @@ elseif(isset($_POST['register'])){
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$pass = md5($_POST['password']);
 	$cpass = md5($_POST['cpassword']);
+	$user_type = $_POST['user_type'];
 
 	$error = array();
 
@@ -84,7 +85,7 @@ elseif(isset($_POST['register'])){
 	   if($pass != $cpass){
 		  $error[] = 'Passwords do not match.';
 	   }else{
-		  $insert = "INSERT INTO users(studentId, email, password, user_type) VALUES('$studentId','$email','$pass','user')";
+		  $insert = "INSERT INTO users(studentId, email, password, user_type) VALUES('$studentId','$email','$pass','$user_type')";
 		  mysqli_query($conn, $insert);
 		  echo '<script type="text/JavaScript"> 
 			container.classList.remove("right-panel-active");
@@ -121,10 +122,14 @@ if (isset($error) && count($error) > 0) {
 		<div class="form-container sign-up-container">
 			<form action="" method="post">
 				<h1>Create Account</h1>
-				<input type="text" name="studentId" placeholder="Student ID" required/>
+				<input type="text" name="studentId" placeholder="ID" required/>
 				<input type="email" name="email" placeholder="Email" required/>
 				<input type="password" name="password" placeholder="Password" required/>
 				<input type="password" name="cpassword" placeholder="Confirm Password" required/>
+				<select class="userType" name="user_type">
+					<option value="user">user</option>
+					<option value="admin">admin</option>
+				</select>
 				<button type="submit" name="register">Sign Up</button>
 			</form>
 		</div>
@@ -132,7 +137,7 @@ if (isset($error) && count($error) > 0) {
 		<div class="form-container sign-in-container">
 			<form action="" method="post">
 				<h1>Sign in</h1>
-				<input type="text" name="studentId" placeholder="Student ID"  required/>
+				<input type="text" name="studentId" placeholder="ID"  required/>
 				<input type="password" name="password" placeholder="Password"  required/>
 				<a href="#">Forgot your password?</a>
 				<button type="submit" name="login">Sign In</button>
